@@ -1,0 +1,47 @@
+def ticTacToe(field):
+    for row in range(5):   #0,1,2,3,4
+                           #0,_,1,_,2
+
+        if row%2==0:       #0,2,4
+            practicalRow=int(row/2) #0,1,2
+            for column in range(5): #0,1,2,3,4
+                                    #0,_,1,_,2
+                if column%2==0:     #0,2,4
+                    praticalColumn = int(column / 2)   #0,1,2
+                    if column != 4:
+                        print(field[praticalColumn][practicalRow], end="")
+                    else:
+                        print(field[praticalColumn][practicalRow])
+                else:
+                    print('|',end="")
+
+
+        else:
+            print('_____')
+
+Player=1
+currentField=[[" "," "," "], [" "," "," "], [" "," "," "]]
+ticTacToe(currentField)
+while(True):
+    print('Players turn: ', Player)
+    RowMove=int(input('Please enter the row\n'))
+    ColumnMove=int(input('Please enter the column\n'))
+
+    if Player==1:        #make move for first player
+        if currentField[ColumnMove][RowMove] == " ":
+            currentField[ColumnMove][RowMove] = 'X'
+            Player = 2
+        else:
+            print('\nPosition filled. Try Again!')
+        else:
+        # make move for second player
+        if currentField[ColumnMove][RowMove] == " ":
+            currentField[ColumnMove][RowMove] = "O"
+            Player = 1
+        else:
+            print('\nPosition filled. Try Again!')
+
+#Winning conditions
+    #...
+    ticTacToe(currentField)
+
